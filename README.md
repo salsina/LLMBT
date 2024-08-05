@@ -25,20 +25,22 @@ compared to the state-of-the-art black box LLM bias testing
 technique (<a href="https://dl.acm.org/doi/10.1145/3611643.3616310" target="_blank">BiasAsker</a>).
 
 ## Reproducibility
-### Generating questions
-To generate questions (base questions and questions with MR), use the LLMBT.py file.
-for ease of use, we have put all the questions and MRs in the "questions.zip" file.
 
-#### Asking GPT-3.5 Turbo
-To ask questions from GPT-3.5 Turbo, use the "run_gpt.py" file. You will need to replace your `OPENAI_API_KEY' to be able to ask from this LLM. By calling the function asking_questions_csv("csv file input"). The questions in the "question column are asked from GPT and the answers will be stored in the answer column of the file. Also, you can replace the GPT-3.5 Turbo model with any other series model by changing the model variable.
+### Generating Questions
+To generate both base questions and questions with Metamorphic Relations (MR), use the `LLMBT.py` file. For your convenience, all questions and MRs are included in the `questions.zip` file.
 
-#### Asking LLaMa 2
-Use the "run_llama2.py" file to ask questions from LLaMa 2. The default model used is the 7b-chat-hf. You can replace the self.model_name value with the model you want. To ask the questions, you would need GPU.
+### Asking GPT-3.5 Turbo
+To ask questions to GPT-3.5 Turbo, use the `run_gpt.py` file. Ensure you replace your `OPENAI_API_KEY` to authenticate your requests. 
 
-#### Asking DialoGPT
-Use the "run_dialogpt.py" file to ask DialoGPT by calling the respond function of the DialoGPT module.
+1. Call the function `asking_questions_csv("csv file input")`. 
+2. The questions in the "question" column are sent to GPT, and the answers are stored in the "answer" column. 
+3. You can replace GPT-3.5 Turbo with any other model in the series by changing the model variable.
 
-### Finding Similar sentences for MR1
-datacreator.py is used for finding the relevant sentence using cosine similarity among the dataset introduced by <a href="(https://github.com/ShenQingchao/QAQA?tab=readme-ov-file)" target="_blank">QAQA</a>.
+### Asking LLaMa 2
+To ask questions to LLaMa 2, use the `run_llama2.py` file. The default model is `7b-chat-hf`, but you can change the `self.model_name` value to the desired model. Note that GPU is required for running these queries.
 
+### Asking DialoGPT
+To ask questions to DialoGPT, use the `run_dialogpt.py` file and call the `respond` function of the DialoGPT module.
 
+### Finding Similar Sentences for MR1
+The `datacreator.py` file is used to find relevant sentences using cosine similarity among the dataset introduced by [QAQA](https://github.com/ShenQingchao/QAQA?tab=readme-ov-file).
